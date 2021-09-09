@@ -12,4 +12,4 @@ The spring boot app to retrieve the marketing preference of a user like Post
   ` docker build -t mpreferences-reader:1.0`
   
  * Link the database service with the spring boot application
-  `docker run -p 8080:8080 --name mpreader --link database:mysql -d mpreferences-reader:1.0`
+  `docker run -p 8080:8080 --name mpreader --net myapp-net database:mysql -d mpreferences-reader:1.0`
