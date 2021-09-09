@@ -29,20 +29,18 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> retrievePost(Long userId) throws ResourceNotFoundException {
-
-
-        if(userRepository.existsById(userId)){
+        if (userRepository.existsById(userId)) {
             List<Post> posts = postRepository.findByUserId(userId);
-            if(posts.isEmpty()){
-                throw new ResourceNotFoundException("No Post present for the user with Id"+userId);
+            if (posts.isEmpty()) {
+                throw new ResourceNotFoundException("No Post present for the user with Id" + userId);
             }
             return mapToDto(posts);
         }
-        throw new ResourceNotFoundException("User with Id +"+userId+"not Present");
+        throw new ResourceNotFoundException("User with Id +" + userId + "not Present");
     }
 
-    private List<PostDto> mapToDto(List<Post> posts){
-        return posts.stream().map(post->mapper.map(post, PostDto.class)).collect(Collectors.toList());
+    private List<PostDto> mapToDto(List<Post> posts) {
+        return posts.stream().map(post -> mapper.map(post, PostDto.class)).collect(Collectors.toList());
     }
 
 
