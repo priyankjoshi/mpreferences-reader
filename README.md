@@ -4,9 +4,6 @@ The spring boot app to retrieve the marketing preference of a user like Post
 
 ## How to run it
  * Pre-requisite (for first time run only) <br>
-  Create a folder for mysql volume mount <br>
-  `mkdir -p ~/data/mysql8`
-
  * Build<br>
    `./gradlew clean build`
 
